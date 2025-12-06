@@ -146,28 +146,17 @@
         /* --- Hero Section (ללא תמונת רקע) --- */
         .hero {
             margin-top: 90px;
-            background-image: url('https://i.postimg.cc/qBW7YF4H/yzwb-ll-sm-(1).png');
-            background-size: 100% auto;
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-color: #ffffff;
-            position: relative;
-            height: auto;
-            padding-bottom: 60%;
             width: 100%;
+            min-height: 300px;
+            position: relative;
+            background-image: url('https://i.postimg.cc/qBW7YF4H/yzwb-ll-sm-(1).png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-color: #ffffff;
         }
 
-        /* אלמנט עיצובי גיאומטרי במקום תמונה */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(26, 37, 58, 0.2); /* שכבת כיסוי עדינה */
-            z-index: 1;
-        }
+
 
         .hero-content {
            display: none; /* הסתרת התוכן מהקאבר */
@@ -516,11 +505,15 @@
 
         /* --- Media Queries --- */
         @media (max-width: 768px) {
-            .hero { 
+            .hero {
+                width: 100%;
+                min-height: 300px;
+                position: relative;
                 background-image: url('https://i.postimg.cc/d1bKWzdR/7843f7fe-9117-477f-9943-ab35c4a016f7.jpg');
                 background-size: contain;
+                background-repeat: no-repeat;
+                background-position: top center;
                 background-color: #ffffff;
-                min-height: 70vh;
             }
             .hero h1 { font-size: 2.5rem; }
             .nav-container ul { display: none; } /* תפריט מובייל יכול להתווסף עם JS */
