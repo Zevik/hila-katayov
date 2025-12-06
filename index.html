@@ -147,12 +147,12 @@
         .hero {
             margin-top: 90px;
             width: 100%;
-            min-height: 300px;
+            height: calc(100vh - 90px);
             position: relative;
-            background-image: url('https://i.postimg.cc/qBW7YF4H/yzwb-ll-sm-(1).png');
-            background-size: contain;
+            background-image: url('cover-desktop.png');
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position: top center;
+            background-position: center center;
             background-color: #ffffff;
         }
 
@@ -507,10 +507,10 @@
         @media (max-width: 768px) {
             .hero {
                 width: 100%;
-                min-height: 300px;
+                min-height: calc(100vh - 90px);
                 position: relative;
-                background-image: url('https://i.postimg.cc/d1bKWzdR/7843f7fe-9117-477f-9943-ab35c4a016f7.jpg');
-                background-size: contain;
+                background-image: url('cover-mobile.jpeg');
+                background-size: 100% auto;
                 background-repeat: no-repeat;
                 background-position: top center;
                 background-color: #ffffff;
