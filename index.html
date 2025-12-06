@@ -147,12 +147,11 @@
         .hero {
             margin-top: 90px;
             background-image: url('https://i.postimg.cc/qBW7YF4H/yzwb-ll-sm-(1).png');
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position: center top;
-            background-color: var(--primary-color);
+            background-position: center;
             position: relative;
-            padding-bottom: 40%;
+            min-height: 60vh;
         }
 
         /* אלמנט עיצובי גיאומטרי במקום תמונה */
@@ -516,7 +515,7 @@
         @media (max-width: 768px) {
             .hero { 
                 background-image: url('https://i.postimg.cc/d1bKWzdR/7843f7fe-9117-477f-9943-ab35c4a016f7.jpg');
-                padding-bottom: 100%; /* יחס מרובע/אנכי יותר למובייל */
+                min-height: 50vh;
             }
             .hero h1 { font-size: 2.5rem; }
             .nav-container ul { display: none; } /* תפריט מובייל יכול להתווסף עם JS */
