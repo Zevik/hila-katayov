@@ -146,15 +146,13 @@
         /* --- Hero Section (ללא תמונת רקע) --- */
         .hero {
             margin-top: 90px;
-            min-height: 80vh;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #2c3e50 100%);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            background-image: url('https://i.postimg.cc/qBW7YF4H/yzwb-ll-sm-(1).png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-color: var(--primary-color);
             position: relative;
-            overflow: hidden;
+            padding-bottom: 40%;
         }
 
         /* אלמנט עיצובי גיאומטרי במקום תמונה */
@@ -165,26 +163,52 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: radial-gradient(circle at 20% 50%, rgba(197, 160, 89, 0.1) 0%, transparent 50%);
+            background-color: rgba(26, 37, 58, 0.2); /* שכבת כיסוי עדינה */
             z-index: 1;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 40px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            background: rgba(26, 37, 58, 0.6);
-            backdrop-filter: blur(5px);
+           display: none; /* הסתרת התוכן מהקאבר */
+        }
+
+        /* --- Intro Section --- */
+        .intro-section {
+            background-color: var(--accent-light);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .intro-section h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .intro-section h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-family: 'Assistant', sans-serif;
+        }
+
+        .intro-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            color: var(--text-light);
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* שחזור מרווח */
             color: var(--secondary-color);
             letter-spacing: 1px;
             animation: fadeInUp 1s ease-out;
+        }
+
+        .signature-image {
+            display: none; /* הסתרת החתימה הקטנה */
         }
 
         .hero h2 {
@@ -394,6 +418,44 @@
             font-weight: 700;
         }
 
+        /* --- Articles Section --- */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--secondary-color);
+        }
+
+        .article-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .article-card a {
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .article-card a:hover {
+            text-decoration: underline;
+        }
+
         /* --- Contact Section --- */
         .contact {
             background-color: var(--primary-color);
@@ -452,6 +514,10 @@
 
         /* --- Media Queries --- */
         @media (max-width: 768px) {
+            .hero { 
+                background-image: url('https://i.postimg.cc/d1bKWzdR/7843f7fe-9117-477f-9943-ab35c4a016f7.jpg');
+                padding-bottom: 100%; /* יחס מרובע/אנכי יותר למובייל */
+            }
             .hero h1 { font-size: 2.5rem; }
             .nav-container ul { display: none; } /* תפריט מובייל יכול להתווסף עם JS */
             .mobile-menu-btn { display: block; }
@@ -504,9 +570,16 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>עו"ד הילה קטיוב</h1>
+            <!-- התוכן הוסתר ויועבר לסקשן הבא -->
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <div class="container reveal">
+            <h1>משרד עו"ד הילה קטיוב ושות'</h1>
             <h2>מצוינות משפטית | יחס אישי | אסטרטגיה מנצחת</h2>
-            <p>מומחיות בחוזים ומכרזים, דיני משפחה והגיל השלישי. 
+            <p>התמחות בחוזים ומכרזים, דיני משפחה והגיל השלישי. 
             <br>ליווי משפטי מקיף המשלב ידע מקצועי עמוק עם רגישות אנושית.</p>
             <a href="#contact" class="btn">תיאום פגישת ייעוץ</a>
         </div>
@@ -553,7 +626,7 @@
 
                 <!-- Third Age -->
                 <div class="service-card reveal">
-                    <div class="icon-box"><i class="fas fa-hands-holding-circle"></i></div>
+                    <div class="icon-box"><i class="fas fa-hand-holding-heart"></i></div>
                     <h3>הגיל השלישי</h3>
                     <p>דאגה לעתיד ולכבוד האדם. הסדרה משפטית המבטיחה שקט נפשי לכם וליקירכם.</p>
                     <ul>
@@ -634,6 +707,33 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="section articles">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>מן המפורסמות</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="articles-grid">
+                <div class="article-card reveal">
+                    <h3>כותרת כתבה ראשונה</h3>
+                    <p>תקציר קצר של הכתבה או המאמר יופיע כאן, ויספק לקורא רקע כללי על התוכן.</p>
+                    <a href="#" target="_blank">קרא עוד &raquo;</a>
+                </div>
+                <div class="article-card reveal">
+                    <h3>כותרת כתבה שניה</h3>
+                    <p>תקציר קצר של הכתבה או המאמר יופיע כאן, ויספק לקורא רקע כללי על התוכן.</p>
+                    <a href="#" target="_blank">קרא עוד &raquo;</a>
+                </div>
+                <div class="article-card reveal">
+                    <h3>כותרת כתבה שלישית</h3>
+                    <p>תקציר קצר של הכתבה או המאמר יופיע כאן, ויספק לקורא רקע כללי על התוכן.</p>
+                    <a href="#" target="_blank">קרא עוד &raquo;</a>
+                </div>
+            </div>
         </div>
     </section>
 
