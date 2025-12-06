@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עו"ד הילה קטיוב | משרד עורכי דין</title>
+    
+    <!-- ייבוא פונטים איכותיים מגוגל -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- אייקונים -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* משתנים וצבעים - פלטה אלגנטית */
+        :root {
+            --primary-color: #1a253a; /* כחול עמוק יוקרתי */
+            --secondary-color: #c5a059; /* זהב עתיק */
+            --accent-light: #f4f1ea; /* קרם/שמנת רקע */
+            --text-color: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--accent-light);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif; /* פונט כותרות קלאסי */
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- אנימציות --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 90px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 75px; /* גודל לוגו */
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            right: 0;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* --- Hero Section (ללא תמונת רקע) --- */
+        .hero {
+            margin-top: 90px;
+            min-height: 80vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c3e50 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* אלמנט עיצובי גיאומטרי במקום תמונה */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 50%, rgba(197, 160, 89, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 40px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            background: rgba(26, 37, 58, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 4px;
+            border: 2px solid var(--secondary-color);
+            transition: var(--transition);
+            font-size: 1.1rem;
+            animation: fadeInUp 1.6s ease-out;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+
+        /* --- About Section --- */
+        .section {
+            padding: 80px 0;
+        }
+
+        .about {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title .divider {
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 0 auto;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        /* --- Services Section --- */
+        .services {
+            background-color: var(--accent-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .service-card ul {
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .service-card ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-right: 20px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .service-card ul li::before {
+            content: '•';
+            color: var(--secondary-color);
+            position: absolute;
+            right: 0;
+            font-size: 1.2em;
+        }
+
+        /* --- Detailed Content Section --- */
+        .content-enrichment {
+            background-color: var(--white);
+            padding: 100px 0;
+        }
+
+        .feature-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 80px;
+            gap: 50px;
+        }
+
+        .feature-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .feature-visual {
+            flex: 1;
+            height: 300px;
+            background-color: var(--primary-color); /* פלייסהולדר אלגנטי במקום תמונה */
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .feature-visual::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--secondary-color);
+            z-index: 0;
+            border-radius: var(--border-radius);
+        }
+
+        .feature-visual i {
+            font-size: 5rem;
+            color: rgba(255,255,255,0.1);
+            z-index: 1;
+        }
+        
+        .feature-visual span {
+            z-index: 2;
+            color: var(--secondary-color);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* --- Contact Section --- */
+        .contact {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 80px 0;
+        }
+
+        .contact h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-family: 'Assistant', sans-serif;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #cccccc;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #111826;
+            color: #888;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* --- Media Queries --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-container ul { display: none; } /* תפריט מובייל יכול להתווסף עם JS */
+            .mobile-menu-btn { display: block; }
+            .feature-row, .feature-row:nth-child(even) { flex-direction: column; }
+            .hero-content { margin: 0 15px; }
+            .feature-visual { width: 100%; margin-bottom: 30px; }
+            .feature-visual::after { right: 10px; bottom: 10px; }
+            
+            /* תפריט מובייל בסיסי */
+            nav.active ul {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 90px;
+                right: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="#">
+                        <img src="https://i.postimg.cc/RqrHFH47/ei-1765014756756-removebg-preview.png" alt="עו״ד הילה קטיוב לוגו">
+                    </a>
+                </div>
+                <nav id="navbar">
+                    <ul>
+                        <li><a href="#about">אודות</a></li>
+                        <li><a href="#services">תחומי עיסוק</a></li>
+                        <li><a href="#enrichment">מידע מקצועי</a></li>
+                        <li><a href="#contact">צור קשר</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>עו"ד הילה קטיוב</h1>
+            <h2>מצוינות משפטית | יחס אישי | אסטרטגיה מנצחת</h2>
+            <p>מומחיות בחוזים ומכרזים, דיני משפחה והגיל השלישי. 
+            <br>ליווי משפטי מקיף המשלב ידע מקצועי עמוק עם רגישות אנושית.</p>
+            <a href="#contact" class="btn">תיאום פגישת ייעוץ</a>
+        </div>
+    </section>
+
+    <!-- About Snippet -->
+    <section id="about" class="section about reveal">
+        <div class="container">
+            <div class="section-title">
+                <h2>המשרד</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-text">
+                <p>
+                    משרד עורכי הדין הילה קטיוב חרט על דגלו את ערכי המצוינות, האמינות והמסירות ללקוח. 
+                    אנו מאמינים כי מאחורי כל תיק משפטי עומד אדם, ולכן אנו מספקים מעטפת משפטית הדוקה המותאמת אישית לצרכי הלקוח, 
+                    תוך הקפדה על הפרטים הקטנים ביותר וחתירה בלתי מתפשרת לתוצאה הטובה ביותר.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>תחומי עיסוק</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Contracts & Tenders -->
+                <div class="service-card reveal">
+                    <div class="icon-box"><i class="fas fa-file-signature"></i></div>
+                    <h3>חוזים, מכרזים ומשפט מנהלי</h3>
+                    <p>ייצוג משפטי מקיף מול גופים ציבוריים ופרטיים, תוך הבנה עמוקה של נבכי הבירוקרטיה והרגולציה.</p>
+                    <ul>
+                        <li>עריכת חוזים מסחריים ופרטיים</li>
+                        <li>ליווי במכרזים ועתירות מנהליות</li>
+                        <li>טיפול בתלונות הציבור</li>
+                        <li>ייצוג מול רשויות</li>
+                    </ul>
+                </div>
+
+                <!-- Third Age -->
+                <div class="service-card reveal">
+                    <div class="icon-box"><i class="fas fa-hands-holding-circle"></i></div>
+                    <h3>הגיל השלישי</h3>
+                    <p>דאגה לעתיד ולכבוד האדם. הסדרה משפטית המבטיחה שקט נפשי לכם וליקירכם.</p>
+                    <ul>
+                        <li>ייפוי כוח מתמשך</li>
+                        <li>מינוי אפוטרופוס</li>
+                        <li>מינוי תומך החלטות</li>
+                        <li>צוואות וירושות</li>
+                    </ul>
+                </div>
+
+                <!-- Family Law -->
+                <div class="service-card reveal">
+                    <div class="icon-box"><i class="fas fa-user-friends"></i></div>
+                    <h3>דיני משפחה ומעמד אישי</h3>
+                    <p>ניהול סכסוכים משפחתיים ברגישות ובנחישות, עם דגש על פתרונות הסכמיים וגישור.</p>
+                    <ul>
+                        <li>הסכמי ממון וגירושין</li>
+                        <li>גישור משפחתי</li>
+                        <li>יישוב סכסוכים</li>
+                        <li>הסדרת מעמד אישי</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrichment Content Section (Deep Dive) -->
+    <section id="enrichment" class="section content-enrichment">
+        <div class="container">
+            
+            <!-- Item 1 -->
+            <div class="feature-row reveal">
+                <div class="feature-text">
+                    <h3>משפט מנהלי וטהרת המכרז</h3>
+                    <p>
+                        עולם המכרזים והחוזים הציבוריים דורש דיוק משפטי והבנה מעמיקה של כללי המשפט המנהלי. 
+                        משרדנו מתמחה בליווי חברות ויחידים המבקשים לגשת למכרזים, כמו גם בערעור על תוצאות מכרזים שנוהלו שלא כדין.
+                    </p>
+                    <p>
+                        אנו מטפלים בעתירות מנהליות כנגד החלטות של רשויות מקומיות ומשרדי ממשלה, וכן מייצגים אזרחים ב<b>תלונות הציבור</b> מול נציב תלונות הציבור ומבקר המדינה, 
+                        במטרה להבטיח מנהל תקין ושמירה על זכויות האזרח מול הממסד.
+                    </p>
+                </div>
+                <div class="feature-visual">
+                    <span>חוזים ומכרזים</span>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="feature-row reveal">
+                <div class="feature-text">
+                    <h3>תכנון העתיד: ייפוי כוח מתמשך</h3>
+                    <p>
+                        תיקון 18 לחוק הכשרות המשפטית והאפוטרופסות חולל מהפכה בתחום הגיל השלישי. ייפוי כוח מתמשך מאפשר לכל אדם בגיר וצלול לקבוע מראש מי ינהל את ענייניו (הרפואיים, האישיים והרכושיים) במידה וחלילה יאבד את כשירותו בעתיד.
+                    </p>
+                    <p>
+                        זהו כלי רב עוצמה המונע את הצורך במינוי אפוטרופוס על ידי בית המשפט ומעניק לאדם שליטה על חייו גם ברגעים קשים. משרדנו מוסמך לערוך מסמך זה ומלווה משפחות גם בהליכי מינוי "תומך החלטות" המאפשר עצמאות לצד סיוע, תוך שמירה על כבוד האדם.
+                    </p>
+                </div>
+                <div class="feature-visual">
+                    <span>הגיל השלישי</span>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="feature-row reveal">
+                <div class="feature-text">
+                    <h3>דיני משפחה: גישור והסכמות</h3>
+                    <p>
+                        התא המשפחתי הוא הרגיש ביותר. כאשר מתגלעים סכסוכים, הדרך בה הם מנוהלים תשפיע על עתיד הצדדים והילדים לשנים רבות. אנו דוגלים בפתרון סכסוכים בדרכי נועם באמצעות גישור והגעה להסכמים כוללים.
+                    </p>
+                    <p>
+                        בין אם מדובר בהסכם ממון צופה פני עתיד, או הסכם גירושין שנועד לפרק את החבילה בכבוד, מטרתנו היא לייצר ודאות משפטית וכלכלית. במקרים בהם לא ניתן להגיע להסכמה, המשרד מעניק ייצוג משפטי בלתי מתפשר לשמירה על זכויות הלקוח.
+                    </p>
+                </div>
+                <div class="feature-visual">
+                    <span>משפחה וגישור</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="reveal">יצירת קשר</h2>
+            <div class="contact-grid reveal">
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>טלפונים</h4>
+                    <p><a href="tel:054-3974841">054-3974841</a></p>
+                    <p><a href="tel:03-5050626">03-5050626</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>דואר אלקטרוני</h4>
+                    <p><a href="mailto:Office@hilakata.co.il">Office@hilakata.co.il</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>כתובת המשרד</h4>
+                    <p>דרך מנחם בגין 154 (בניין "קרדן")<br>תל אביב</p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-fax"></i>
+                    <h4>פקס</h4>
+                    <p>03-6201113</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 משרד עורכי דין הילה קטיוב. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // אנימציית חשיפה בגלילה
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // תפריט מובייל
+        function toggleMenu() {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('active');
+        }
+
+        // גלילה חלקה לקישורים
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const nav = document.getElementById('navbar');
+                if(nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // הפעלת ה-Reveal הראשון בטעינה
+        reveal();
+    </script>
+</body>
+</html>
